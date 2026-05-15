@@ -1,0 +1,12 @@
+{
+  "name": "NailAnemiaAI",
+  "description": "Explainable CNN-ViT Fusion for Anemia Detection using Fingernail Images",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "Image Recognition",
+    "Medical Diagnostics",
+    "Explainable AI"
+  ]
+}
