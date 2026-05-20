@@ -7,10 +7,10 @@ import io
 import base64
 from PIL import Image
 from sqlalchemy.orm import Session
-from ..models.fusion import AdvancedFusionModel
-from ..xai.explainers import GradCAM, GradCAMPlusPlus, LimeExplainer, ShapExplainer, overlay_heatmap
-from ..database.db import SessionLocal, PredictionRecord, engine, Base
-from ..config import settings
+from models.fusion import AdvancedFusionModel
+from xai.explainers import GradCAM, GradCAMPlusPlus, LimeExplainer, ShapExplainer, overlay_heatmap
+from database.db import SessionLocal, PredictionRecord, engine, Base
+from config import settings
 from albumentations.pytorch import ToTensorV2
 import albumentations as A
 import logging
@@ -38,7 +38,7 @@ def get_db():
         db.close()
 
 # Load Model
-device = torch.device(settings.DEVICE)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 logger.info(f"Using device: {device}")
 
 model = AdvancedFusionModel(num_classes=2)
